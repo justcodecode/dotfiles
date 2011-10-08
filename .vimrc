@@ -1,6 +1,8 @@
 set nocompatible
 colorscheme molokai
 
+set viminfo=%,'50,\"100,:100,n~/.vim/viminfo
+
 set nobackup
 set nowritebackup
 set history=500    " keep 500 lines of command line history
