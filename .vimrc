@@ -1,13 +1,16 @@
 set nocompatible
+colorscheme molokai
+
 set nobackup
 set nowritebackup
 set history=500    " keep 500 lines of command line history
+
 set incsearch     " do incremental searching
 set ignorecase
 set hlsearch
-set nu
+
 syntax on
-colorscheme molokai
+set nu
 set modeline
 set tabstop=4 " tab size = 4
 set shiftwidth=4 " soft space = 4
