@@ -1,6 +1,6 @@
 set nocompatible
-let g:molokai_original=1
 set t_Co=256
+let g:molokai_original=1
 colorscheme molokai
 
 set viminfo=%,'50,\"100,:100,n~/.vim/viminfo
