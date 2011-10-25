@@ -5,7 +5,7 @@ PS1='%B[%n@%m:%~]%# %b'
 
 export PATH=$PATH:~/bin
 
-setopt AUTOCD AUTO_LIST AUTO_MENU CORRECT_ALL \
+setopt AUTOCD AUTO_LIST \
        COMPLETE_ALIASES COMPLETE_IN_WORD \
        EXTENDED_GLOB GLOB \
        HIST_EXPIRE_DUPS_FIRST HIST_IGNORE_ALL_DUPS HIST_REDUCE_BLANKS INC_APPEND_HISTORY \
@@ -42,3 +42,18 @@ alias grep='grep --color'
 alias dh='dirs -v'
 alias ...='../..'
 alias h='history'
+
+if [ "$TERM_PROGRAM" = "Apple_Terminal" ] && [ -z "$INSIDE_EMACS" ]; then
+    update_terminal_cwd() {
+        # Identify the directory using a "file:" scheme URL,
+        # including the host name to disambiguate local vs.
+        # remote connections. Percent-escape spaces.
+        local SEARCH=' '
+        local REPLACE='%20'
+        local PWD_URL="file://$HOST${PWD//$SEARCH/$REPLACE}"
+        printf '\e]7;%s\a' "$PWD_URL"
+    }
+    autoload add-zsh-hook
+    add-zsh-hook chpwd update_terminal_cwd
+    update_terminal_cwd
+fi
