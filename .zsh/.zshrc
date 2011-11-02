@@ -20,7 +20,8 @@ zstyle ':completion::complete:*' use-cache true
 zstyle ':completion::complete:*' cache-path $ZDOTDIR/zsh_cache
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-zstyle ':completion:*' list-colors 'no=00:fi=00:di=34:ln=35:ex=31:pi=33:so=32:bd=34;46:cd=34;43:su=30;41:sg=30;46'
+eval $(gdircolors)
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 zstyle ':completion:*' completer _complete _list _oldlist _expand _ignored _match _correct _approximate _prefix
 zstyle ':completion:*:match:*' original only
@@ -36,12 +37,14 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
-alias ll='ls -lF'
+alias ls='gls --color -F'
+alias ll='ls -l'
 alias la='ll -a'
 alias grep='grep --color'
 alias dh='dirs -v'
 alias ...='../..'
 alias h='history'
+alias less='less -R'
 
 if [ "$TERM_PROGRAM" = "Apple_Terminal" ] && [ -z "$INSIDE_EMACS" ]; then
     update_terminal_cwd() {
