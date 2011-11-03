@@ -40,7 +40,7 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 alias ls='gls --color -F'
 alias ll='ls -l'
 alias la='ll -a'
-alias grep='grep --color'
+alias grep='grep --color=always'
 alias dh='dirs -v'
 alias ...='../..'
 alias h='history'
