@@ -25,4 +25,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # Disable Safari’s thumbnail cache for History and Top Sites
 defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
+# enable select in quick view
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
 chflags nohidden ~/Library/
