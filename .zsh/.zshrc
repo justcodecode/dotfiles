@@ -3,8 +3,6 @@ autoload compinit; compinit
 export CLICOLOR=true
 PS1='%B[%n@%m:%~]%# %b'
 
-export PATH=$PATH:~/bin
-
 setopt AUTOCD AUTO_LIST \
        COMPLETE_ALIASES COMPLETE_IN_WORD \
        EXTENDED_GLOB GLOB \
@@ -20,7 +18,7 @@ zstyle ':completion::complete:*' use-cache true
 zstyle ':completion::complete:*' cache-path $ZDOTDIR/zsh_cache
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-eval $(gdircolors)
+eval $(dircolors)
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 zstyle ':completion:*' completer _complete _list _oldlist _expand _ignored _match _correct _approximate _prefix
@@ -37,7 +35,7 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
-alias ls='gls --color -F'
+alias ls='ls --color -F'
 alias ll='ls -l'
 alias la='ll -a'
 alias grep='grep --color=always'
@@ -46,17 +44,3 @@ alias ...='../..'
 alias h='history'
 alias less='less -R'
 
-if [ "$TERM_PROGRAM" = "Apple_Terminal" ] && [ -z "$INSIDE_EMACS" ]; then
-    update_terminal_cwd() {
-        # Identify the directory using a "file:" scheme URL,
-        # including the host name to disambiguate local vs.
-        # remote connections. Percent-escape spaces.
-        local SEARCH=' '
-        local REPLACE='%20'
-        local PWD_URL="file://$HOST${PWD//$SEARCH/$REPLACE}"
-        printf '\e]7;%s\a' "$PWD_URL"
-    }
-    autoload add-zsh-hook
-    add-zsh-hook chpwd update_terminal_cwd
-    update_terminal_cwd
-fi
