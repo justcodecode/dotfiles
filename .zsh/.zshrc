@@ -1,5 +1,7 @@
 autoload compinit; compinit
 
+export EDITOR=vim
+
 export CLICOLOR=true
 PS1='%B[%n@%m:%~]%# %b'
 

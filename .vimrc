@@ -1,6 +1,12 @@
 set nocompatible
-set t_Co=256
-let g:molokai_original=1
+
+if $TERM =~ '^xterm'
+    set t_Co=256
+else
+    set t_Co=8
+endif
+
+let g:molokai_original=0
 colorscheme molokai
 
 set viminfo=%,'50,\"100,:100,n~/.vim/viminfo
