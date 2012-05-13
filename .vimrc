@@ -2,17 +2,21 @@ set nocompatible
 
 if $TERM =~ '^xterm'
     set t_Co=256
+elseif $TERM =~ '^rxvt'
+    set t_Co=256
 else
     set t_Co=8
 endif
 
-let g:molokai_original=0
-colorscheme molokai
+" let g:molokai_original=0
+" colorscheme molokai
+colorscheme zenburn
 
 set viminfo=%,'50,\"100,:100,n~/.vim/viminfo
 
 set nobackup
 set nowritebackup
+set noswapfile
 set history=500    " keep 500 lines of command line history
 
 set incsearch     " do incremental searching
