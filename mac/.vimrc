@@ -8,9 +8,7 @@ else
     set t_Co=8
 endif
 
-" let g:molokai_original=0
-" colorscheme molokai
-colorscheme zenburn
+colorscheme monokai
 
 set viminfo=%,'50,\"100,:100,n~/.vim/viminfo
 
