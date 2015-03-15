@@ -1,9 +1,0 @@
-[user]
-	name = neo wu
-	email = nirvanak@gmail.com
-[color]
-	ui = auto
-[diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
