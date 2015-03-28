@@ -148,7 +148,7 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts-domain' ignored-patterns '<->.<->.
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
 alias ls='gls --color -F'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias la='ll -a'
 alias grep='grep --color=always'
 alias dh='dirs -v'
