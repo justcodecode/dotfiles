@@ -1,12 +1,13 @@
 #!/bin/sh
-# zsh
-mkdir -p $HOME/.zsh/site-functions
-cp zsh/zshenv.zsh $HOME/.zshenv
-cp zsh/zshrc.mac.zsh $HOME/.zsh/.zshrc
-ln -s /usr/local/Library/Contributions/brew_zsh_completion.zsh $HOME/.zsh/site-functions/_brew
+mkdir -p $HOME/.config
+
+# fish
+cp -r fish $HOME/.config/
 
 # vim
 mkdir -p $HOME/.vim/colors
 cp vim/vimrc.vim $HOME/.vimrc
 cp vim/colors/monokai.vim $HOME/.vim/colors
 
+# lftp
+cp -r lftp $HOME/.config/
