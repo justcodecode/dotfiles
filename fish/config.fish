@@ -10,6 +10,7 @@ alias ls='gls --color -F --group-directories-first'
 alias ...='../..'
 alias h='history'
 alias vi='vim'
+alias tree='tree -C'
 
 set CDPATH . $HOME/depot
 set PATH $PATH $HOME/depot/cloud-manager-ng-project/build/cloud-manager-ng/install/cmn/bin
