@@ -16,6 +16,7 @@ set nowritebackup
 set noswapfile
 set history=50          " keep 50 lines of command history
 set mouse=v             " use mouse in visual mode (not normal,insert,command,help mode
+set clipboard=unnamed   " use system clipboard
 
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches

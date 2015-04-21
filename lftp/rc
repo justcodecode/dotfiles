@@ -1,5 +1,0 @@
-alias ls 'cls -hDF'
-alias ll 'cls -hDFl'
-alias la 'cls -hDFla'
-
-set cmd:set-term-status yes
