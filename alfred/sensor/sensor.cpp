@@ -1,5 +1,5 @@
 // refer to https://github.com/beltex/libsmc
-// clang++ main.cpp -framework IOKit -O3
+// clang++ sensor.cpp -framework IOKit -O3
 
 #include <iostream>
 #include <vector>
@@ -222,6 +222,8 @@ int main() {
         cout << "<item><title>Fan #"<< i << ": " << fans[i].current << " rpm" << "</title><subtitle>min: " << fans[i].min << " rpm, max: " << fans[i].max << " rpm</subtitle></item>" << endl;
     }
     
+    cout << "</items>" << endl;
+
     return 0;
 }
 
