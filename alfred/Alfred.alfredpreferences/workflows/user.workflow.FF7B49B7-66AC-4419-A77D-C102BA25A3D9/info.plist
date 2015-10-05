@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>neo.alfred.screenshot</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>0A0133E9-B06A-4858-800B-7A85616B72E6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FA0DFDB3-D578-4E5A-9A23-BDB4D6A3B011</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>FA0DFDB3-D578-4E5A-9A23-BDB4D6A3B011</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>829C150D-2B13-4B33-BE18-C993F490CBE9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Neo Wu</string>
+	<key>description</key>
+	<string>take a screenshot</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Screenshot</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>sc</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string>cat &lt;&lt; EOF
+&lt;?xml version="1.0"?&gt;
+&lt;items&gt;
+  &lt;item uid="screenshot.c" arg="c"&gt; 
+    &lt;title&gt;Capture to Clipboard&lt;/title&gt; 
+    &lt;subtitle&gt;Capture the current screen to the clipboard&lt;/subtitle&gt; 
+  &lt;/item&gt; 
+  &lt;item uid="screenshot.ic" arg="ic"&gt; 
+    &lt;title&gt;Capture Interactive to Clipboard&lt;/title&gt; 
+    &lt;subtitle&gt;Capture a rectangle on screen to the clipboard&lt;/subtitle&gt; 
+  &lt;/item&gt; 
+  &lt;item uid="screenshot.i" arg="i"&gt; 
+    &lt;title&gt;Capture Interactive&lt;/title&gt; 
+    &lt;subtitle&gt;Capture a rectangle on screen&lt;/subtitle&gt; 
+  &lt;/item&gt;
+  &lt;item uid="screenshot.f" arg="f"&gt; 
+    &lt;title&gt;Capture Screen&lt;/title&gt; 
+    &lt;subtitle&gt;Capture the current screen&lt;/subtitle&gt; 
+  &lt;/item&gt; 
+&lt;/items&gt;
+EOF</string>
+				<key>subtext</key>
+				<string>Grab a screen shot and save to your desktop</string>
+				<key>title</key>
+				<string>Screen Capture</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>0A0133E9-B06A-4858-800B-7A85616B72E6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>script</key>
+				<string>QUERY="{query}"
+USER=$(whoami)
+DATE=$(date +"%Y-%m-%dT%H-%M-%S")
+FILENAME="/Users/$USER/Desktop/screenshot-$DATE.png"
+if [ $QUERY == "f" ]; then
+	screencapture "$FILENAME"
+	echo "$FILENAME"
+elif [ $QUERY == "i" ]; then
+	screencapture -i "$FILENAME"
+	echo "$FILENAME"
+elif [ $QUERY == "fc" ]; then
+	screencapture -c
+	echo "screenshot saved to clipboard"
+elif [ $QUERY == "ic" ]; then
+	screencapture -c -i 
+	echo "screenshot saved to clipboard"
+fi</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>FA0DFDB3-D578-4E5A-9A23-BDB4D6A3B011</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Screenshot</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>829C150D-2B13-4B33-BE18-C993F490CBE9</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>0A0133E9-B06A-4858-800B-7A85616B72E6</key>
+		<dict>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
+		<key>829C150D-2B13-4B33-BE18-C993F490CBE9</key>
+		<dict>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
+		<key>FA0DFDB3-D578-4E5A-9A23-BDB4D6A3B011</key>
+		<dict>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

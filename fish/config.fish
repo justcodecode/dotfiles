@@ -13,4 +13,4 @@ alias vi='vim'
 alias tree='tree -C'
 
 set CDPATH . $HOME/depot
-set PATH $PATH $HOME/depot/cloud-manager-ng-project/build/cloud-manager-ng/install/cmn/bin
+set PATH $PATH $HOME/depot/cmn-project/build/cmn/install/cmn/bin

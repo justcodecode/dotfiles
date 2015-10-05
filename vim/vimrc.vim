@@ -40,6 +40,7 @@ set matchpairs+=<:>     " specially for html
 " editor settins
 set tabstop=4           " tab size = 4
 set softtabstop=4       " number of spaces in tab when editing
+set shiftwidth=4        " tab at beginning uses 4 spaces
 set expandtab           " expand tab to space
 set ignorecase          " case insensitive searching
 set smartcase           " but become case sensitive if you type uppercase characters
