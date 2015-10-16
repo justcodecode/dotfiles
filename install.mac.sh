@@ -11,3 +11,4 @@ cp vim/colors/monokai.vim $HOME/.vim/colors
 
 # mac
 defaults write com.apple.dock tilesize -float 36
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true

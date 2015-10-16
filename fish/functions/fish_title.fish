@@ -1,6 +1,7 @@
 function fish_title
     if [ $_ = 'fish' ]
-        echo (prompt_pwd)
+        set -l realhome ~
+        echo $PWD | sed -e "s|^$realhome|~|"
     else
         echo $_
     end

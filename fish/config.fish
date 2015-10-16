@@ -7,7 +7,8 @@ set -x EDITOR 'vim'
 eval (gdircolors -c)
 
 alias ls='gls --color -F --group-directories-first'
-alias ...='../..'
+alias ..='cd ..'
+alias ...='cd ../..'
 alias h='history'
 alias vi='vim'
 alias tree='tree -C'
