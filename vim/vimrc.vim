@@ -2,8 +2,6 @@ set nocompatible
 
 if $TERM =~ '^xterm'
     set t_Co=256
-elseif $TERM =~ '^rxvt'
-    set t_Co=256
 else
     set t_Co=8
 endif
